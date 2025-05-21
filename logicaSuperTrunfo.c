@@ -1,43 +1,57 @@
 #include <stdio.h>
+#include <string.h>
 
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
+// Estrutura que representa uma cidade com seus principais atributos
+struct Cidade {
+    char nome[50];
+    int populacao;      // numero de habitantes
+    float area;         // area total em km²
+    float pib;          // Produto Interno Bruto em bilhoes
+};
 
 int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
+    // Definicao das cidades com dados reais aproximados
+    struct Cidade saoPaulo = {"Sao Paulo", 11451999, 1521.11, 803.0};
+    struct Cidade rioDeJaneiro = {"Rio de Janeiro", 6211423, 1200.27, 364.0};
 
-    
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
+    // ========== Comparacao das Cidades ==========
+    printf("\n===== COMPARACAO ENTRE AS CIDADES =====\n");
 
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
+    // Comparacao da populacao
+    if (saoPaulo.populacao > rioDeJaneiro.populacao) {
+        printf("Populacao: %s tem mais habitantes (%d contra %d).\n",
+            saoPaulo.nome, saoPaulo.populacao, rioDeJaneiro.populacao);
+    } else if (rioDeJaneiro.populacao > saoPaulo.populacao) {
+        printf("Populacao: %s tem mais habitantes (%d contra %d).\n",
+            rioDeJaneiro.nome, rioDeJaneiro.populacao, saoPaulo.populacao);
+    } else {
+        printf("Populacao: Ambas as cidades tem o mesmo numero de habitantes (%d).\n", saoPaulo.populacao);
+    }
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+    // Comparacao da area
+    if (saoPaulo.area > rioDeJaneiro.area) {
+        printf("Area: %s eh maior em territorio (%.2f km² contra %.2f km²).\n",
+            saoPaulo.nome, saoPaulo.area, rioDeJaneiro.area);
+    } else if (rioDeJaneiro.area > saoPaulo.area) {
+        printf("Area: %s eh maior em territorio (%.2f km² contra %.2f km²).\n",
+            rioDeJaneiro.nome, rioDeJaneiro.area, saoPaulo.area);
+    } else {
+        printf("Area: Ambas as cidades tem a mesma area (%.2f km²).\n", saoPaulo.area);
+    }
 
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
+    // Comparacao do PIB
+    if (saoPaulo.pib > rioDeJaneiro.pib) {
+        printf("PIB: %s possui economia maior (%.2f bilhoes contra %.2f bilhoes).\n",
+            saoPaulo.nome, saoPaulo.pib, rioDeJaneiro.pib);
+    } else if (rioDeJaneiro.pib > saoPaulo.pib) {
+        printf("PIB: %s possui economia maior (%.2f bilhoes contra %.2f bilhoes).\n",
+            rioDeJaneiro.nome, rioDeJaneiro.pib, saoPaulo.pib);
+    } else {
+        printf("PIB: Ambas as cidades tem o mesmo PIB (%.2f bilhoes).\n", saoPaulo.pib);
+    }
 
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
-
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+    // ========== Fim do Programa ==========
+    printf("\nComparacao finalizada. Obrigado por utilizar o sistema Super Trunfo - Cidades!\n");
 
     return 0;
 }
